@@ -3,9 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import 'ant-design-vue/dist/antd.css';
+import Antd from 'ant-design-vue';
 Vue.config.productionTip = false
-
+Vue.use(Antd);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
