@@ -101,22 +101,16 @@ export default {
     height: 44px;
     border-radius: 2px;
     display: flex;
-    -webkit-transition: box-shadow 200ms cubic-bezier(0.4,0,0.2,1);
     transition: box-shadow 200ms cubic-bezier(0.4,0,0.2,1);
 }
 .search-field{
-    -webkit-font-smoothing: antialiased;
-    word-break: break-all;
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-    overflow: visible;
     width: 520px;
     border: none;
     padding: 0 0 0 15px;
     outline: none;
     height: 100%;
+    -webkit-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     color: rgb(51,51,51);
 }
@@ -224,40 +218,6 @@ export default {
     margin: 30px auto;
 }
 
-.search-button{
-    -webkit-font-smoothing: antialiased;
-    word-break: break-all;
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-    overflow: visible;
-    text-transform: none;
-    -webkit-appearance: button;
-    text-align: center;
-    width: 54px;
-    height: 100%;
-    padding: 0;
-    background: #fff;
-    border: none;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    cursor: pointer;
-    display: block;
-    outline: none;
-}
-.icon-search{
-    word-break: break-all;
-    line-height: 1.15;
-    text-transform: none;
-    text-align: center;
-    cursor: pointer;
-    font-family: "iconfont" !important;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    color: #db542f;
-    font-size: 24px;
-}
 </style>
 
 
