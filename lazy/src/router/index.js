@@ -5,6 +5,7 @@ import search from '@/components/search'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -12,7 +13,7 @@ export default new Router({
       component: index
     },
     {
-      path: '/search',
+      path: '/search/:id',
       name: 'search',
       component: search
     }
