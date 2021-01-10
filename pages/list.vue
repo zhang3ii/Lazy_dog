@@ -120,17 +120,21 @@ export default {
       recommend_list: []
     };
   },
+  async asyncData({ route }) {
+    var data = {};
+    await search_video({ k: route.query.word, p: "1" }).then(res => {
+      data["returnData"] = res.data;
+      if (res.data) {
+        recommend({ mid: res.data[0].mid }).then(r => {
+          data['recommend_list'] = r.data.recommend;
+        });
+      }
+    });
+    return data
+  },
   methods: {
-    search_by_word(val) {
-      search_video({ k: val, p: "1" }).then(res => {
-        this.returnData = res.data;
-        if (this.returnData) {
-          this.get_recommend(this.returnData[0].mid);
-        }
-      });
-    },
     search_by_click(val) {
-      window.location.href = window.location.origin + '/list?word=' + val
+      window.location.href = window.location.origin + "/list?word=" + val;
     },
     get_more_data() {
       this.current_page++;
@@ -146,10 +150,7 @@ export default {
       });
     }
   },
-  mounted() {
-    this.word = this.$route.query.word;
-    this.search_by_word(this.word);
-  }
+  mounted() {}
 };
 </script>
 
@@ -165,7 +166,7 @@ export default {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   margin: auto;
 }
 .movie {

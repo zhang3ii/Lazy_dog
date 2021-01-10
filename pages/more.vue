@@ -271,6 +271,7 @@ export default {
       tab: ""
     };
   },
+  
   methods: {
     get_hot_film(val) {
       hot_film({ pn: this.current_page, lm: 20, tab: this.tab }).then(res => {

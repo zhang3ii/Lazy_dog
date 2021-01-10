@@ -343,7 +343,9 @@
               </div>
 
               <div class="movie-list-header" style="margin: 5px -10px 0;">
-                <span class="movie-list-more" @click="push_to_more('最新电视剧')"
+                <span
+                  class="movie-list-more"
+                  @click="push_to_more('最新电视剧')"
                   >更多<span class="iconfont icon-detail"></span></span
                 ><span class="movie-list-title">最新电视剧</span>
               </div>
@@ -478,8 +480,37 @@ import {
 
 export default {
   components: { searchHeader },
+  async asyncData() {
+    let data = {};
+    await hot_film({ pn: 1, lm: 8, tab: "" }).then(res => {
+      data["hot_film_list"] = res.data;
+    });
+    await hot_drama({ pn: 1, lm: 8, tab: "" }).then(res => {
+      data["hot_drama_list"] = res.data;
+    });
+    await hot_variety({ pn: 1, lm: 8, tab: "" }).then(res => {
+      data["hot_variety_list"] = res.data;
+    });
+    await hot_comic({ pn: 1, lm: 8, tab: "rbdm" }).then(res => {
+      data["hot_comic_list"] = res.data;
+    });
+    await rank({ pn: 1, lm: 5, ty: "电影" }).then(res => {
+      data['rank_film_list'] = res.data;
+    });
+    await rank({ pn: 1, lm: 5, ty: "电视剧" }).then(res => {
+      data['rank_variety_list'] = res.data;
+    });
+    await rank({ pn: 1, lm: 5, ty: "动漫" }).then(res => {
+      data['rank_comic_list'] = res.data;
+    });
+    await rank({ pn: 1, lm: 5, ty: "综艺" }).then(res => {
+      data['rank_drama_list'] = res.data;
+    });
+    return data;
+  },
   data() {
     return {
+      result: [],
       hot_film_list: [],
       hot_variety_list: [],
       hot_drama_list: [],
@@ -490,6 +521,7 @@ export default {
       rank_comic_list: []
     };
   },
+
   methods: {
     search_by_word(val) {
       this.$router.push({ path: "list", query: { word: val } });
@@ -537,9 +569,6 @@ export default {
         var res = document.getElementsByClassName("hot_comic")[0].children;
         this.change_class(val, res);
       }
-      if (val === undefined) {
-        val = "rbdm";
-      }
       hot_comic({ pn: 1, lm: 8, tab: val }).then(res => {
         this.hot_comic_list = res.data;
       });
@@ -563,11 +592,6 @@ export default {
     }
   },
   mounted() {
-    this.get_hot_film();
-    this.get_hot_drama();
-    this.get_hot_variety();
-    this.get_hot_comic();
-    this.get_rank();
   }
 };
 </script>
