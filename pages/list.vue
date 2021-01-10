@@ -124,13 +124,11 @@ export default {
     var data = {};
     await search_video({ k: route.query.word, p: "1" }).then(res => {
       data["returnData"] = res.data;
-      if (res.data) {
-        recommend({ mid: res.data[0].mid }).then(r => {
-          data['recommend_list'] = r.data.recommend;
-        });
-      }
     });
-    return data
+    await recommend({ mid: data["returnData"][0].mid }).then(r => {
+        data["recommend_list"] = r.data.recommend;
+      });
+    return data;
   },
   methods: {
     search_by_click(val) {

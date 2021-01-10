@@ -375,7 +375,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .main {
   width: 600px;
   margin-right: 20px;
