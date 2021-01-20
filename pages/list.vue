@@ -58,7 +58,12 @@
           </div>
         </div>
         <div class="load-message">
-          <div class="load-more" @click="get_more_data">点击加载更多</div>
+          <div class="load-more" @click="get_more_data" v-if="more">
+            点击加载更多
+          </div>
+          <div class="load-more" v-else>
+            已经到底了
+          </div>
         </div>
       </div>
       <div class="sidebar">
@@ -117,7 +122,8 @@ export default {
       word: "",
       returnData: [],
       current_page: 1,
-      recommend_list: []
+      recommend_list: [],
+      more: true
     };
   },
   async asyncData({ route }) {
@@ -126,19 +132,27 @@ export default {
       data["returnData"] = res.data;
     });
     await recommend({ mid: data["returnData"][0].mid }).then(r => {
-        data["recommend_list"] = r.data.recommend;
-      });
+      data["recommend_list"] = r.data.recommend;
+    });
     return data;
   },
   methods: {
     search_by_click(val) {
       window.location.href = window.location.origin + "/list?word=" + val;
     },
+    search_by_word(val) {
+      window.location.href = window.location.origin + "/list?word=" + val;
+    },
     get_more_data() {
       this.current_page++;
       search_video({ k: this.word, p: this.current_page }).then(res => {
-        for (let i in res.data) {
-          this.returnData.push(res.data[i]);
+        if (res.data) {
+          this.more = true;
+          for (let i in res.data) {
+            this.returnData.push(res.data[i]);
+          }
+        } else {
+          this.more = false;
         }
       });
     },
@@ -148,7 +162,9 @@ export default {
       });
     }
   },
-  mounted() {}
+  mounted() {
+    this.word = this.$route.query.word;
+  }
 };
 </script>
 

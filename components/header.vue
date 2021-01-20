@@ -36,8 +36,11 @@ export default {
   },
   methods: {
     search() {
-      this.$parent.search_by_word(this.key_word);
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      console.log(this.key_word)
+      if (this.key_word) {
+        this.$parent.search_by_word(this.key_word);
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+      }
     }
   },
   mounted() {
