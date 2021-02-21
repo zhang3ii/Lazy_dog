@@ -689,9 +689,7 @@ export default {
 div {
   display: block;
 }
-.card-content {
-  box-sizing: border-box;
-}
+
 .border-shadow {
   box-shadow: 0 8px 33px 0 rgba(30, 35, 42, 0.08);
   border-radius: 4px;

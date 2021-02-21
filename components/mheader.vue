@@ -4,9 +4,9 @@
       <div class="header">
         <div class="logo-wrapper">
           <img
-            style="height:100%"
+            style="height:55%"
             src="@/static/logo.png"
-            onclick="javascript:location.href='/'"
+            onclick="javascript:location.href='/index_m'"
           />
         </div>
         <div class="search-box">
@@ -62,7 +62,7 @@ export default {
 }
 
 .header {
-  width: 800px;
+  width: 100%;
   height: 74px;
   margin-right: auto;
   margin-left: auto;
@@ -72,8 +72,8 @@ export default {
   align-items: center;
 }
 .logo-wrapper {
-  width: 190px;
-  height: 80%;
+  width: 30%;
+  height: 100%;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
@@ -83,14 +83,13 @@ export default {
 .search-box {
   box-shadow: rgba(0, 34, 77, 0.1) 0px 2px 2px 0px,
     rgba(30, 35, 42, 0.08) 0px 0px 0px 1px;
-  width: 430px;
+  width: 60%;
   height: 44px;
   border-radius: 2px;
   display: flex;
   transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 }
 .search-field {
-  width: 520px;
   border: none;
   padding: 0px 0px 0px 15px;
   outline: none;

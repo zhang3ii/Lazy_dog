@@ -271,7 +271,7 @@ export default {
       tab: ""
     };
   },
-  
+
   methods: {
     get_hot_film(val) {
       hot_film({ pn: this.current_page, lm: 20, tab: this.tab }).then(res => {
@@ -307,7 +307,7 @@ export default {
     get_recommend(val) {
       recommend({ mid: this.data_list[0].mid }).then(res => {
         this.returnData = res.data.recommend;
-        console.log(this.returnData)
+        console.log(this.returnData);
       });
     },
     // 点击变色js
@@ -365,7 +365,7 @@ export default {
         this.get_rank("动漫");
       }
 
-      setTimeout(this.get_recommend, 1000)
+      setTimeout(this.get_recommend, 1000);
     }
   },
   mounted() {
@@ -476,6 +476,7 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 95%;
 }
 .movie-title-text {
   font-size: 25px;
@@ -690,7 +691,7 @@ ul {
   padding-top: 140%;
   border-radius: 4px;
 }
- .el-rate__text {
+.el-rate__text {
   margin-left: 10px;
 }
 .el-rate__icon {

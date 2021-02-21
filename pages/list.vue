@@ -243,6 +243,10 @@ a {
   font-size: 25px;
   font-weight: 700;
   line-height: 31px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 70%;
 }
 .movie-info-m {
   padding: 10px 10px 10px 20px;
