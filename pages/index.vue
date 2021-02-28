@@ -495,16 +495,16 @@ export default {
       data["hot_comic_list"] = res.data;
     });
     await rank({ pn: 1, lm: 5, ty: "电影" }).then(res => {
-      data['rank_film_list'] = res.data;
+      data["rank_film_list"] = res.data;
     });
     await rank({ pn: 1, lm: 5, ty: "电视剧" }).then(res => {
-      data['rank_variety_list'] = res.data;
+      data["rank_variety_list"] = res.data;
     });
     await rank({ pn: 1, lm: 5, ty: "动漫" }).then(res => {
-      data['rank_comic_list'] = res.data;
+      data["rank_comic_list"] = res.data;
     });
     await rank({ pn: 1, lm: 5, ty: "综艺" }).then(res => {
-      data['rank_drama_list'] = res.data;
+      data["rank_drama_list"] = res.data;
     });
     return data;
   },
@@ -589,9 +589,15 @@ export default {
     },
     push_to_more(val) {
       this.$router.push({ path: "more", query: { word: val } });
+    },
+    check_user() {
+      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        this.$router.push({ path: "index_m"});
+      }
     }
   },
   mounted() {
+    this.check_user()
   }
 };
 </script>

@@ -99,7 +99,9 @@
             </div>
 
             <div class="movie-list-header-m">
-              <span class="movie-list-more-m" @click="push_to_more('热门电视剧')"
+              <span
+                class="movie-list-more-m"
+                @click="push_to_more('热门电视剧')"
                 >更多<span class="iconfont icon-detail"></span></span
               ><span class="movie-list-title-m">热门电视剧</span>
               <div class="movie-list-subject-block-m hot_variety">
@@ -172,7 +174,7 @@
                     show-score
                     text-color="#ff9900"
                     :score-template="item.score"
-                                        style="text-align: center;"
+                    style="text-align: center;"
                   >
                   </el-rate>
                 </div>
@@ -292,7 +294,7 @@
                     show-score
                     text-color="#ff9900"
                     :score-template="item.score"
-                                        style="text-align: center;"
+                    style="text-align: center;"
                   >
                   </el-rate>
                 </div>
@@ -312,12 +314,11 @@ import {
   hot_variety,
   hot_drama,
   hot_comic,
-  rank
 } from "@/api/search.js";
 
 export default {
   components: { mHeader },
-    async asyncData() {
+  async asyncData() {
     let data = {};
     await hot_film({ pn: 1, lm: 9, tab: "" }).then(res => {
       data["hot_film_list"] = res.data;
@@ -333,7 +334,7 @@ export default {
     });
     return data;
   },
-  
+
   methods: {
     search_by_word(val) {
       this.$router.push({ path: "list_m", query: { word: val } });
@@ -387,12 +388,19 @@ export default {
     },
     push_to_more(val) {
       this.$router.push({ path: "more_m", query: { word: val } });
+    },
+    check_user() {
+      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        console.log('M')
+      } else {
+        this.$router.push({ path: "/"});
+      }
     }
   },
+  mounted() {
+    this.check_user();
+  }
 };
-
-
-
 </script>
 <style>
 .main-m {

@@ -4,7 +4,7 @@
       <div class="header">
         <div class="logo-wrapper">
           <img
-            style="height:55%"
+            style="height: 55%;width: 100%"
             src="@/static/logo.png"
             onclick="javascript:location.href='/index_m'"
           />
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     search() {
-      console.log(this.key_word)
+      console.log(this.key_word);
       if (this.key_word) {
         this.$parent.search_by_word(this.key_word);
         document.body.scrollTop = document.documentElement.scrollTop = 0;

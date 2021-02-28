@@ -366,11 +366,17 @@ export default {
       }
 
       setTimeout(this.get_recommend, 1000);
+    },
+    check_user() {
+      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        this.$router.push({ path: "more_m", query: { word: this.word } });
+      }
     }
   },
   mounted() {
     this.word = this.$route.query.word;
     this.get_data();
+    this.check_user();
   }
 };
 </script>

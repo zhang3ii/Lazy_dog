@@ -160,10 +160,16 @@ export default {
       recommend({ mid: val }).then(res => {
         this.recommend_list = res.data.recommend;
       });
+    },
+    check_user() {
+      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        this.$router.push({ path: "list_m", query: { word: this.word } });
+      }
     }
   },
   mounted() {
     this.word = this.$route.query.word;
+    this.check_user();
   }
 };
 </script>
