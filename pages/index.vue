@@ -464,6 +464,13 @@
           </div>
         </div>
       </div>
+      <div style="width:100%">
+        <div style="margin: 0 auto;width: 20%;">
+          <a href="https://beian.miit.gov.cn/" target="_blank"
+            >闽ICP备2021000809号</a
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -592,12 +599,12 @@ export default {
     },
     check_user() {
       if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        this.$router.push({ path: "index_m"});
+        this.$router.push({ path: "index_m" });
       }
     }
   },
   mounted() {
-    this.check_user()
+    this.check_user();
   }
 };
 </script>

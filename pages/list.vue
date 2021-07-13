@@ -109,6 +109,13 @@
         </div>
       </div>
     </div>
+    <div style="width:100%">
+      <div style="margin: 0 auto;width: 20%;">
+        <a href="https://beian.miit.gov.cn/" target="_blank"
+          >闽ICP备2021000809号</a
+        >
+      </div>
+    </div>
   </div>
 </template>
 

@@ -303,18 +303,20 @@
           </div>
         </div>
       </div>
+      <div style="width:100%">
+        <div style="margin: 0 auto;width: 20%;">
+          <a href="https://beian.miit.gov.cn/" target="_blank"
+            >闽ICP备2021000809号</a
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import mHeader from "../components/mheader";
-import {
-  hot_film,
-  hot_variety,
-  hot_drama,
-  hot_comic,
-} from "@/api/search.js";
+import { hot_film, hot_variety, hot_drama, hot_comic } from "@/api/search.js";
 
 export default {
   components: { mHeader },
@@ -391,9 +393,9 @@ export default {
     },
     check_user() {
       if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        console.log('M')
+        console.log("M");
       } else {
-        this.$router.push({ path: "/"});
+        this.$router.push({ path: "/" });
       }
     }
   },
@@ -460,7 +462,7 @@ export default {
 }
 .movie-list-item-m {
   width: 31%;
-  padding: 10px 1% 3px;
+  padding: 15px 1% 3px;
   font-size: 15px;
   cursor: pointer;
   border-radius: 4px;
